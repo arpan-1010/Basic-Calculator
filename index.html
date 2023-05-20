@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Simple Calculator</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <div id="main">
+            <form name="f">
+                <input type="text" name="new" placeholder="0" id="textbox"> <br>
+                <input type="button" value="7" onclick="f.new.value += 7">
+                <input type="button" value="8" onclick="f.new.value += 8">
+                <input type="button" value="9" onclick="f.new.value += 9">
+                <input type="button" value="/" onclick="div()"> <br>
+
+                <input type="button" value="4" onclick="f.new.value += 4">
+                <input type="button" value="5" onclick="f.new.value += 5">
+                <input type="button" value="6" onclick="f.new.value += 6">
+                <input type="button" value="x" onclick="mul()"> <br>
+
+                <input type="button" value="1" onclick="f.new.value += 1">
+                <input type="button" value="2" onclick="f.new.value += 2">
+                <input type="button" value="3" onclick="f.new.value += 3">
+                <input type="button" value="-" onclick="sub()"> <br>
+
+                <input type="button" value="AC" onclick="f.new.value = ''">
+                <input type="button" value="0" onclick="f.new.value += 0">
+                <input type="button" value="=" onclick="f.new.value = eval(f.new.value)">
+                <input type="button" value="+" onclick="add()"> <br>
+            </form>
+        </div>
+
+        <script>
+            function div() {
+                var p = 0, q = 0;
+                p = f.new.value;
+                q = p.charAt(p.length - 1);
+                if (q == '+' || q == '-' || q == '*' || q == '/') {
+                    f.new.value = p.substring(0, p.length - 1);
+                    f.new.value += '/';
+                } else {
+                    f.new.value += '/';
+                }
+            }
+            function mul() {
+                var p = 0, q = 0;
+                p = f.new.value;
+                q = p.charAt(p.length - 1);
+                if (q === '+' || q === '-' || q === '*' || q === '/') {
+                    f.new.value = p.substring(0, p.length - 1);
+                    f.new.value += '*';
+                } else {
+                    f.new.value += '*';
+                }
+            }
+            function sub() {
+                var p = 0, q = 0;
+                p = f.new.value;
+                q = p.charAt(p.length - 1);
+                if (q == '+' || q == '-' || q == '*' || q == '/') {
+                    f.new.value = p.substring(0, p.length - 1);
+                    f.new.value += '-';
+                } else {
+                    f.new.value += '-';
+                }
+            }
+            function add() {
+                var p = 0, q = 0;
+                p = f.new.value;
+                q = p.charAt(p.length - 1);
+                if (q == '+' || q == '-' || q == '*' || q == '/') {
+                    f.new.value = p.substring(0, p.length - 1);
+                    f.new.value += '+';
+                } else {
+                    f.new.value += '+';
+                }
+            }
+        </script>
+
+        <div id="footer">Made with ❤️ by Arpan Mondal</div>
+    </body>
+
+</html>
